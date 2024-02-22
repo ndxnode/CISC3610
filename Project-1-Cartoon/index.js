@@ -5,8 +5,9 @@ const ctx = myCanvas.getContext("2d");
 ctx.fillStyle = "#d3d3d3";
 ctx.fillRect(0,0,800,500);
 
-// title 
-
+// project title  
+ctx.font = "20px Georgia";
+ctx.strokeText("This is my dream House", 150, 50);
 
 //sun
 ctx.beginPath();
