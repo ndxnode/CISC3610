@@ -52,4 +52,11 @@ ctx.fill();
 
 //house door
 ctx.beginPath();
-ctx.fillStyle()
+ctx.fillStyle = "black";
+ctx.fillRect(550,25,50,100);
+
+//house windows
+ctx.beginPath();
+ctx.fillStyle = "white";
+ctx.fillRect(475,175,50,75);
+ctx.fillRect(625,175,50,75);
