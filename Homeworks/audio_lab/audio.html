@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Map with Sound Effects</title>
+
+</head>
+<body>
+    <img src="https://m.media-amazon.com/images/I/71di6dn1wfL._AC_UF1000,1000_QL80_.jpg" usemap="#image-map">
+
+    <map name="image-map">
+        <area target="" alt="Clap" title="Clap" onclick="playSound('clap.mp3')" coords="162,498,20" shape="circle">
+        <area target="" alt="Laugh" title="Laugh" onclick="playSound('laughter.mp3')" coords="261,498,18" shape="circle">
+        <area target="" alt="Drums" title="Drums" onclick="playSound('drum.mp3')" coords="160,690,19" shape="circle" >
+        <area target="" alt="Money" title="Money" onclick="playSound('money.mp3')" coords="445,591,22" shape="circle">
+        <area target="" alt="Gun shot" title="Gun shot" onclick="playSound('laser-gun.mp3')" coords="261,588,19" shape="circle">
+    </map>
+    <div>
+        <img src="" alt="">
+    </div>
+
+    <audio id="audio" preload="auto">
+        <source src="" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+<script>
+    function playSound(sound) {
+        var audio = document.getElementById("audio");
+        audio.src = sound;
+        audio.play();
+    }
+</script>
+
+</body>
+</html>
+
+    
