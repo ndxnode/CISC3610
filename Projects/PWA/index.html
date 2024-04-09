@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadratic Formula</title>
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          font-family: Arial, sans-serif;
+          background-image: url(quad_formula.jpg);
+          background-size: cover;
+          background-position: center;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        #form-container {
+          background-color: rgba(255, 255, 255, 0.8);
+          padding: 20px;
+          border-radius: 10px;
+        }
+      </style>
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div id="form-container">
+        <h3>Quadratic Formula: a<b>x</b><sup>2</sup> + b<b>x</b> + c = 0</h3>
+        <h5>Enter numerical values for a, b, c to get the value of x</h5>
+        <form id="quadraticForm">
+          <label for="a">a</label>
+          <input type="number" id="a" required /><br />
+          <label for="b">b</label>
+          <input type="number" id="b" required /><br />
+          <label for="c">c</label>
+          <input type="number" id="c" required/><br />
+          <input type="submit" value="Calculate" />
+        </form>
+        <div id="result"></div>
+      </div>
+  
+      <script>
+          document.getElementById("quadraticForm").onsubmit = function(event) {
+              event.preventDefault();
+              let a = parseFloat(document.getElementById('a').value);
+              let b = parseFloat(document.getElementById('b').value);
+              let c = parseFloat(document.getElementById('c').value);
+              let x = Math.pow(b, 2) - 4 * a * c;
+              if (x > 0) {
+                  let x1 = (-b + Math.sqrt(x)) / (2 * a);
+                  let x2 = (-b - Math.sqrt(x)) / (2 * a);
+                  document.getElementById('result').innerText = `Roots are: x1 = ${x1}, x2 = ${x2}`;
+              } else {
+                  document.getElementById('result').innerText = "Roots are imaginary";
+              }
+          }
+      </script>
+
+    <script>
+        window.addEventListener('load', () => {
+        registerSW();
+        });
+    
+        // Register the Service Worker
+        async function registerSW() {
+        if ('serviceWorker' in navigator) {
+            try {
+            await navigator
+                    .serviceWorker
+                    .register('serviceworker.js');
+            }
+            catch (e) {
+            console.log('SW registration failed');
+            }
+        }
+        }
+    </script>
+    
+</body>
+</html>
